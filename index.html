@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //Receber o valor de salário do usuário
+        //Verificar em qual faixa o salário se encontra
+        //Calcular quanto será descontado do salário
+        //Exibir o valor descontado
+
+        let calcularValorIr = (callbackMensagemDesconto) => {
+
+            let salario = Number(prompt('Digite o seu salário: '));
+
+            let valorImposto = 0;
+
+            if (salario <= 1903.98) {
+                valorImposto = 0;
+            } else if (salario <= 2826.65) {
+                valorImposto = (salario * 0.075) - 142.80;
+            } else if (salario <= 3751.05) {
+                valorImposto = (salario * 0.15) - 354.80;
+            } else if (salario <= 4664.68) {
+                valorImposto = (salario * 0.225) - 636.13;
+            } else {
+                valorImposto = (salario * 0.275) - 869.36;
+            }
+            return callbackMensagemDesconto(valorDescontado);
+        }
+
+        function exibeMensagemDesconto(valorIr) {
+            alert(`O valor descontado foi R$ ${valorIr.toFixed(2)}`)
+        }
+
+        calcularValorIr(exibeMensagemDesconto);
+
+    </script>
+</body>
+
+</html>
